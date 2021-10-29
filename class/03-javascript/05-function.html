@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title></title>
+    <script>
+        let isActive = false //스위치변수
+        const aaa = () => {  //화살표함수
+        
+                    if(isActive === false){ //== 는 알맹이만 같은가?
+                        isActive = true
+
+                        const token = String(Math.floor(Math.random() * 1000000)).padStart(6, "0")
+                        document.getElementById("qqq").innerText = token //"qqq" 를 token 으로 덮어씌움
+                        
+                        let time = 180
+                        setInterval(function(){
+                            const minutes = String(Math.floor(time / 60)).padStart(2, "0")
+                            const seconds = String(time % 60).padStart(2, "0")
+                            if(time >= 0){
+                                document.getElementById("ccc").innerText = (minutes + ":" + seconds)
+                                time = time - 1
+                            }
+                        }, 1000)
+                    }
+                }
+    </script>
+</head>
+<body>
+     <span id="qqq">000000</span>
+     <button onclick="aaa()">인증번호 전송</button>
+     <div id="ccc">03:00</div>
+</body>
+</html>
